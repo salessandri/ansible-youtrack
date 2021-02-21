@@ -1,0 +1,45 @@
+- name: 'Creating base directory for Youtrack'
+  file:
+    path: '{{ item }}'
+    owner: root
+    group: root
+    mode: '750'
+    state: directory
+  loop:
+    - '{{ youtrack__data_dir }}'
+
+- name: 'Creating inner directories for Youtrack'
+  file:
+    path: '{{ youtrack__data_dir }}/{{ item }}'
+    owner: '13001'
+    group: '13001'
+    mode: '750'
+    state: directory
+  loop:
+    - 'backups'
+    - 'config'
+    - 'data'
+    - 'logs'
+
+- name: "Setup YouTrack's docker container"
+  docker_container:
+    name: '{{ youtrack__container_name }}'
+    image: 'jetbrains/youtrack:{{ youtrack__version }}'
+    mounts:
+      - source: "{{ youtrack__data_dir }}/backups"
+        target: /opt/youtrack/backups
+        type: bind
+      - source: "{{ youtrack__data_dir }}/config"
+        target: /opt/youtrack/conf
+        type: bind
+      - source: "{{ youtrack__data_dir }}/data"
+        target: /opt/youtrack/data
+        type: bind
+      - source: "{{ youtrack__data_dir }}/logs"
+        target: /opt/youtrack/logs
+        type: bind
+    networks_cli_compatible: yes
+    published_ports:
+      - "{{ youtrack__listen_host }}:{{ youtrack__listen_port }}:8080/tcp"
+    restart_policy: 'unless-stopped'
+    state: started

@@ -1,0 +1,6 @@
+---
+youtrack__version: 2020.6.6441
+youtrack__container_name: youtrack-server
+youtrack__data_dir: /var/youtrack/
+youtrack__listen_host: 127.0.0.1
+youtrack__listen_port: 8080
