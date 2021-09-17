@@ -38,7 +38,7 @@
       - source: "{{ youtrack__data_dir }}/logs"
         target: /opt/youtrack/logs
         type: bind
-    networks_cli_compatible: yes
+    networks_cli_compatible: true
     published_ports:
       - "{{ youtrack__listen_host }}:{{ youtrack__listen_port }}:8080/tcp"
     restart_policy: 'unless-stopped'
