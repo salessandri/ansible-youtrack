@@ -1,4 +1,5 @@
 galaxy_info:
+  namespace: salessandri
   role_name: youtrack
   author: Santiago Alessandri
   description: YouTrack server setup using the official docker container
