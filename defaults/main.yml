@@ -1,5 +1,5 @@
 ---
-youtrack__version: 2021.4.31698
+youtrack__version: 2021.4.36179
 youtrack__container_name: youtrack-server
 youtrack__data_dir: /var/youtrack/
 youtrack__listen_host: 127.0.0.1
