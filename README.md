@@ -13,7 +13,7 @@ For the `docker_container` python module, [`geerlingguy.pip` role](https://galax
 
 ## Role Variables
 
- - **`youtrack__version`** (optional, default: _2021.4.36179_): Image version tag to use.
+ - **`youtrack__version`** (optional, default: _2022.1.42950_): Image version tag to use.
  - **`youtrack__container_name`** (optional, default: _youtrack-server_): Name to use for the container created by the role.
  - **`youtrack__data_dir`** (optional, default _/var/youtrack/_): Folder to use for persistent files.
  - **`youtrack__listen_host`** (optional, default: _127.0.0.1_): Address where the container will publish the service's socket.
