@@ -1,5 +1,5 @@
 - name: 'Creating base directory for Youtrack'
-  file:
+  ansible.builtin.file:
     path: '{{ item }}'
     owner: root
     group: root
@@ -9,7 +9,7 @@
     - '{{ youtrack__data_dir }}'
 
 - name: 'Creating inner directories for Youtrack'
-  file:
+  ansible.builtin.file:
     path: '{{ youtrack__data_dir }}/{{ item }}'
     owner: '13001'
     group: '13001'
@@ -22,7 +22,7 @@
     - 'logs'
 
 - name: "Setup YouTrack's docker container"
-  docker_container:
+  community.docker.docker_container:
     name: '{{ youtrack__container_name }}'
     image: 'jetbrains/youtrack:{{ youtrack__version }}'
     mounts:

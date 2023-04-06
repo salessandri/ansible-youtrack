@@ -1,6 +1,6 @@
 ---
-youtrack__version: 2022.2.53793
+youtrack__version: '2022.3.65379'
 youtrack__container_name: youtrack-server
 youtrack__data_dir: /var/youtrack/
-youtrack__listen_host: 127.0.0.1
+youtrack__listen_host: '127.0.0.1'
 youtrack__listen_port: 8080
